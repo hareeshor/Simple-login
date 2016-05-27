@@ -60,6 +60,7 @@
  $pageTitle = "New user - Sign up ";
  include_once "header.php";
  ?>
+ <div class="container">
  <h3>User Registration</h3> 
  
  <?php
@@ -102,6 +103,6 @@
     </div>
   </div>
 </form>
- 
+  </div> <!-- /container -->
  <?php include_once 'footer.php'; ?>
 
