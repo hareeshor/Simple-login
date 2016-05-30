@@ -55,10 +55,33 @@ class users {
 		
 	}
 	function userlogin()
+	{		
+		$query = $this->con->prepare("select * from " . $this->tableName. " where email = '".$this->email."' and password = '".$this->password."'");
+		$query->execute();
+		$rowcount = $query->rowCount();
+		if($rowcount==1)
+		{
+			return $rowcount;
+			//logged in
+		}
+		else
+		{
+			return 0;
+		}
+		
+	}
+	function checkloggedin()
 	{
-		
-		
-		
+		if(!isset($_SESSION['logged_user']))
+		{
+			//not logged in redirect to login page
+			$this->redirect('index.php');
+		}		
+	}
+	
+	function redirect($url) {
+		header ( "Location: $url" );
+		exit ();
 	}
 	
 		
